@@ -33,6 +33,22 @@ const mouse = function(){
   });
 
 
+  // Capture the dragging state = true and save start values to memory
+  document.body.addEventListener('mousedown', e => {
+    if(_mouse.dragging === false){
+      _mouse.dragging = true; // change the dragging state
+
+      // memorize the mouse current position after click
+      _mouse.memory.x = _mouse.current.x;
+      _mouse.memory.y = _mouse.current.y;
+
+      // Reset inverse coordinates
+      _mouse.inverse.x = _mouse.memory.x;
+      _mouse.inverse.y = _mouse.memory.y;
+    }
+  });
+
+
   return _mouse;
 };
 

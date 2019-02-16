@@ -1,1 +1,1 @@
-# Mouse Module
+# JS Mouse Module

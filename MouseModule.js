@@ -34,7 +34,7 @@ const mouse = function(){
 
 
   // Capture the dragging state = true and save start values to memory
-  document.body.addEventListener('mousedown', e => {
+  document.body.addEventListener('mousedown', () => {
     if(_mouse.dragging === false){
       _mouse.dragging = true; // change the dragging state
 
@@ -46,6 +46,24 @@ const mouse = function(){
       _mouse.inverse.x = _mouse.memory.x;
       _mouse.inverse.y = _mouse.memory.y;
     }
+  });
+
+
+  // Disable the dragging state and reset all values to 0
+  document.body.addEventListener('mouseup', () => {
+    _mouse.dragging = false; // disable dragging state
+
+    _mouse.current.x = 0;
+    _mouse.current.y = 0;
+
+    _mouse.memory.x = 0;
+    _mouse.memory.y = 0;
+
+    _mouse.inverse.x = 0;
+    _mouse.inverse.y = 0;
+
+    _mouse.difference.x = 0;
+    _mouse.difference.y = 0;
   });
 
 
